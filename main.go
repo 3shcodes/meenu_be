@@ -21,10 +21,11 @@ func main() {
 	godotenv.Load()
 
 	port = os.Getenv("PORT")
-	dbConf := os.Getenv("MYSQL");
+	sqlType := os.Getenv("DBTYPE")
+	dbConf := os.Getenv(sqlType);
 	dbName := os.Getenv("DB_NAME");
 
-	db := database.CreateInstance(dbConf+"/"+dbName);
+	db := database.CreateInstance(sqlType, dbConf+"/"+dbName);
 	defer db.Close();
 
 	mux := http.NewServeMux();

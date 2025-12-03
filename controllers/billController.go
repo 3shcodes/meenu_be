@@ -72,7 +72,7 @@ func GenerateBill(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	transactionsTable.SetDB(db);
 
 	if billsTable.CheckBillExists(someVar.BillId) {
-		io.WriteString(w, *models.MakeResp("Failed", 403, nil));
+		io.WriteString(w, *models.MakeResp("Failed bill exists", 403, nil));
 		return;
 	}
 
@@ -80,7 +80,7 @@ func GenerateBill(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 
 	isExistingClient, clientId := clientsTable.CheckClientExists(someVar.ClientName) 
 	if !isExistingClient {
-		io.WriteString(w, *models.MakeResp("Failed", 403, nil));
+		io.WriteString(w, *models.MakeResp("Failed client doesnt exist", 403, nil));
 		return;
 	}
 
