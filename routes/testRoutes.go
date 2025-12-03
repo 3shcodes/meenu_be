@@ -7,5 +7,5 @@ import (
 )
 
 func addTestRoutes(mux *http.ServeMux) {
-	mux.HandleFunc("/test", controllers.TestFunc) 
+	mux.HandleFunc("/", controllers.TestFunc) 
 }

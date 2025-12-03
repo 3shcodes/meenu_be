@@ -8,7 +8,7 @@ import (
 
 func InitiateRoutes(mux *http.ServeMux, db *sql.DB) {
 
-        // addTestRoutes(mux);
+        addTestRoutes(mux);
         addBillRoutes(mux, db);
 
 	fmt.Println("Routes initated");
