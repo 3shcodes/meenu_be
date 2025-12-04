@@ -112,7 +112,7 @@ func CreateInstance(sqlType, dbConf string) *sql.DB {
 
 	`
 
-	if sqlType == "MYSQL" {
+	if sqlType == "mysql" {
 		db, err := sql.Open(sqlType, dbConf);
 		if err != nil {
 			panic(err)

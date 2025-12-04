@@ -24,6 +24,22 @@ func (ct *ClientTable) SetDB(db *sql.DB) {
 	ct.db = db
 }
 
+func (ct *ClientTable) CreateNewClient(clientName string, clientDispName string) {
+
+
+	stmt, err := ct.db.Prepare("INSERT INTO clients(client_name, client_disp_name, created_on) values(?, ?, NOW())");
+	if err != nil {
+		panic(err)
+	}
+	defer stmt.Close();
+
+	_, err = stmt.Exec(clientName, clientDispName);
+	if err != nil {
+		panic(err)
+	}
+
+}
+
 
 func (ct *ClientTable) CheckClientExists(clientName string) (bool, int) {
 	

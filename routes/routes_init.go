@@ -10,6 +10,8 @@ func InitiateRoutes(mux *http.ServeMux, db *sql.DB) {
 
         addTestRoutes(mux);
         addBillRoutes(mux, db);
+        addClientRoutes(mux, db);
+        addItemRoutes(mux, db);
 
 	fmt.Println("Routes initated");
 }
